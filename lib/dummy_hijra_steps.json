@@ -1,0 +1,95 @@
+{
+  "recommendation": [
+    {
+      "id": 1,
+      "image_url": "https://drive.google.com/uc?id=1dEsNPVXAmjlQl9QKeieNL_0CMN7oT3Kd",
+      "description": "Memahami tujuan dasar dan pokok Agama Islam. Sehingga kita paham bahwa Agama ini bukan hanya sekedar ritual belaka.",
+      "title": "Apa Itu Agama Islam?",
+      "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+      "status": 2
+    }
+  ],
+  "kurikulum": [
+    {
+      "id": 1,
+      "order": 1,
+      "level_title": "Agama Islam",
+      "topics": [
+        {
+          "id": 1,
+          "image_url": "https://drive.google.com/uc?id=1dEsNPVXAmjlQl9QKeieNL_0CMN7oT3Kd",
+      "title": "Apa Itu Agama Islam?",
+          "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+          "status": 3
+        },
+        {
+          "id": 2,
+          "image_url": "https://drive.google.com/uc?id=1eyk8OYZlUnUzIglhm-q0t5G6ljQI_W04",
+          "title": "Tuhan Yang Maha Esa",
+          "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+          "status": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "level_title": "Memperbaiki Akar",
+      "topics": [
+        {
+          "id": 3,
+          "image_url": "https://drive.google.com/uc?id=1eAwd2r8lIWzb8T9nk8awpctA55_v8WK-",
+          "title": "Manusia Sebagai Hamba",
+          "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+          "status": 1
+        },
+        {
+          "id": 4,
+          "image_url": "https://drive.google.com/uc?id=1GOu4GmpUeLgryCe-WHJFHEXCP0ujpOad",
+          "title": "Shalat Tiang Agama",
+          "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+          "status": 1
+        },
+        {
+          "id": 5,
+          "image_url": "https://drive.google.com/uc?id=1L5R6FdQqcGDkJvsQ7a82EQAoz9bzQ510",
+          "title": "Thaharah",
+          "ustadz_name": "Ustadz Muhammad Fulan L.C.",
+          "status": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "order": 3,
+      "level_title": "Tumbuh Berkembang",
+      "topics": [
+        {
+          "id": 6,
+          "image_url": "https://drive.google.com/uc?id=1lQ2M-4CITyOmgmYUyRj0OOdZLEeLWxni",
+          "title": "Islam dan Iman",
+          "ustadz_name": "Ustadz Fulandana Ahsan L.C.",
+          "status": 2
+        },
+        {
+          "id": 7,
+          "image_url": "https://drive.google.com/uc?id=1Pb1BU3UXsMEQBL2jRDhJtqwwxLU5VyOK",
+          "title": "Sempurna Dalam Menuntut Ilmu",
+          "ustadz_name": "Ustadz Fulandana Ahsan L.C.",
+          "status": 2
+        },
+        {
+          "id": 8,
+          "image_url": "https://drive.google.com/uc?id=1sSX3y4oxtrFXgmVNHyGqbIAW6cEuGX85",
+          "title": "Fiqh Dasar",
+          "ustadz_name": "Ustadz Fulandana Ahsan L.C.",
+          "status": 2
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "avatar_url": "https://drive.google.com/uc?id=1GRb3OOJ0TgEZRRLMkPrNucvHE_XVP77s",
+    "name": "Laksamana Adhito"
+  }
+}

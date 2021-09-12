@@ -8,7 +8,7 @@ Kindly please read this README to better understand about the apps technical.
 
 **Running Dummy DB (json-server)**
 
-`json-server --host 192.168.0.199 lib\dummy_hijra_steps.json`
+`json-server --host 192.168.0.199 lib/dummy_hijra_steps.json`
 
 While BE is not ready yet, we can use this json-server dummy "DB" to create the items used in the application.
 > note: you need to install json-server in your pc (https://github.com/typicode/json-server)

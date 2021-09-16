@@ -46,7 +46,7 @@ class TopicCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(topic.title),
-                              Text(topic.ustadzName)
+                              // Text(topic.ustadzName)
                             ],
                           ),
                         ),

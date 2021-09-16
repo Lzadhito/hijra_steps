@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/widgets/Recommendation/recommendation_card.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/recommendation_loader.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:hijra_steps/screens/Home/entity/Topic.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
@@ -17,11 +16,11 @@ class _RecommendationWidgetState extends State<RecommendationWidget> {
   late Future<Topic> futureRecommendationData;
 
   Future<Topic> fetchRecommendation() async {
-    const String url = "http://192.168.0.199:3000/recommendation/1";
-    final response = await http.get(Uri.parse(url));
+    const String url = "http://192.168.1.13:3000/recommendation/1";
+    final response = await Dio().get(url);
 
     if (response.statusCode == 200) {
-      return Topic.fromJson(jsonDecode(response.body));
+      return Topic.fromJson(response.data);
     } else {
       throw Exception('Failed to load recommendation');
     }

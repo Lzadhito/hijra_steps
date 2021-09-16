@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/level_list_loader.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:hijra_steps/screens/Home/entity/Level.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
@@ -17,18 +16,18 @@ class _CurriculumWidgetState extends State<CurriculumWidget> {
   late Future<List<Level>> futureLevelData;
 
   Future<List<Level>> fetchLevel() async {
-    const String url = "http://192.168.0.199:3000/kurikulum";
-    final response = await http.get(Uri.parse(url));
+    const String url = "http://192.168.1.13:3000/curriculum";
+    final response = await Dio().get(url);
     if (response.statusCode == 200) {
-      final jsonData = json.decode(response.body);
+      final jsonData = response.data;
       List<Level> result = [];
       for (var i in jsonData) {
-        Level kurikulum = Level.fromJson(i);
-        result.add(kurikulum);
+        Level curriculum = Level.fromJson(i);
+        result.add(curriculum);
       }
       return result;
     } else {
-      throw Exception('Failed to load kurikulum');
+      throw Exception('Failed to load curriculum');
     }
   }
 

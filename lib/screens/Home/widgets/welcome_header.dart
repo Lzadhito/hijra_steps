@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
-import 'dart:convert';
 import 'dart:async';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 import 'package:hijra_steps/screens/Home/entity/Profile.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
@@ -16,11 +15,11 @@ class _WelcomeHeaderState extends State<WelcomeHeader> {
   late Future<Profile> futureProfileData;
 
   Future<Profile> fetchProfile() async {
-    const String url = "http://192.168.0.199:3000/profile";
-    final response = await http.get(Uri.parse(url));
+    const String url = "http://192.168.1.13:3000/profile";
+    final response = await Dio().get(url);
 
     if (response.statusCode == 200) {
-      return Profile.fromJson(jsonDecode(response.body));
+      return Profile.fromJson(response.data);
     } else {
       throw Exception('Failed to load profile');
     }

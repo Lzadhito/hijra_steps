@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
@@ -49,8 +50,9 @@ class WelcomeHeader extends StatelessWidget {
                       ),
                     ),
                     CircleAvatar(
-                      backgroundImage:
-                          avatarURL != '' ? NetworkImage(avatarURL) : null,
+                      backgroundImage: avatarURL != ''
+                          ? CachedNetworkImageProvider(avatarURL)
+                          : null,
                       child: avatarURL == '' ? Text(initial) : null,
                       backgroundColor: Colors.white,
                     ),

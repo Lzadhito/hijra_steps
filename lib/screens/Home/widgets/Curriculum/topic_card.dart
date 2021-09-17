@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/models/Topic.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/cardRoundedCorner.dart'
@@ -23,8 +24,8 @@ class TopicCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Image(
-                image: NetworkImage(topic.imageUrl),
+              child: CachedNetworkImage(
+                imageUrl: topic.imageUrl,
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),

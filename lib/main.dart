@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/home_screen.dart';
-import 'package:hijra_steps/screens/Home/topic_screen.dart';
+import 'package:hijra_steps/screens/Topic/topic_screen.dart';
 
 void main() {
   runApp(HijraSteps());

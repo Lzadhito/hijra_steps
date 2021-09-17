@@ -1,4 +1,4 @@
-import 'package:hijra_steps/screens/Home/entity/Topic.dart';
+import 'package:hijra_steps/screens/Home/models/Topic.dart';
 
 class Level {
   final int id;

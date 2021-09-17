@@ -1,37 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Home/services/recommendation_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Recommendation/recommendation_card.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/recommendation_loader.dart';
-import 'package:dio/dio.dart';
-import 'dart:async';
 
-import 'package:hijra_steps/screens/Home/entity/Topic.dart';
+import 'package:hijra_steps/screens/Home/models/Topic.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
 
-class RecommendationWidget extends StatefulWidget {
-  @override
-  _RecommendationWidgetState createState() => _RecommendationWidgetState();
-}
-
-class _RecommendationWidgetState extends State<RecommendationWidget> {
-  late Future<Topic> futureRecommendationData;
-
-  Future<Topic> fetchRecommendation() async {
-    const String url = "http://192.168.1.13:3000/recommendation/1";
-    final response = await Dio().get(url);
-
-    if (response.statusCode == 200) {
-      return Topic.fromJson(response.data);
-    } else {
-      throw Exception('Failed to load recommendation');
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    futureRecommendationData = fetchRecommendation();
-  }
-
+class RecommendationWidget extends StatelessWidget {
   Widget buildRecommendationCard(AsyncSnapshot<Topic> snapshot) {
     final int id = snapshot.data!.id;
     final String imageUrl = snapshot.data!.imageUrl;
@@ -51,7 +26,7 @@ class _RecommendationWidgetState extends State<RecommendationWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: paddingHorizontal),
       child: FutureBuilder<Topic>(
-          future: futureRecommendationData,
+          future: RecommendationService().fetchRecommendation(),
           builder: (BuildContext context, AsyncSnapshot<Topic> snapshot) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

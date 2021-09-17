@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/entity/Topic.dart';
+import 'package:hijra_steps/screens/Home/models/Topic.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/cardRoundedCorner.dart'
     show cardRoundedCorner;
 

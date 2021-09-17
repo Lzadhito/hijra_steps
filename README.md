@@ -9,6 +9,8 @@ Kindly please read this README to better understand about the apps technical.
 **Running Dummy DB (json-server)**
 
 `json-server --host <your_ip_address> lib/dummy_hijra_steps.json`
+
+example:
 `json-server --host 192.168.1.13 lib/dummy_hijra_steps.json`
 
 While BE is not ready yet, we can use this json-server dummy "DB" to create the items used in the application.

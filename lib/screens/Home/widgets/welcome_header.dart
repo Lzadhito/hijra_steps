@@ -1,36 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
-import 'dart:async';
-import 'package:dio/dio.dart';
-
-import 'package:hijra_steps/screens/Home/entity/Profile.dart';
+import 'package:hijra_steps/screens/Home/models/Profile.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
 
-class WelcomeHeader extends StatefulWidget {
-  @override
-  _WelcomeHeaderState createState() => _WelcomeHeaderState();
-}
-
-class _WelcomeHeaderState extends State<WelcomeHeader> {
-  late Future<Profile> futureProfileData;
-
-  Future<Profile> fetchProfile() async {
-    const String url = "http://192.168.1.13:3000/profile";
-    final response = await Dio().get(url);
-
-    if (response.statusCode == 200) {
-      return Profile.fromJson(response.data);
-    } else {
-      throw Exception('Failed to load profile');
-    }
-  }
-
-  @override
-  initState() {
-    super.initState();
-    futureProfileData = fetchProfile();
-  }
-
+class WelcomeHeader extends StatelessWidget {
   String generateInitial(List<String> names) {
     final int totalWords = names.length;
     if (totalWords < 2) {
@@ -54,7 +28,7 @@ class _WelcomeHeaderState extends State<WelcomeHeader> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
             child: FutureBuilder(
-              future: futureProfileData,
+              future: ProfileService().fetchProfile(),
               builder: (context, AsyncSnapshot<Profile> snapshot) {
                 if (snapshot.hasData) {
                   final String profileName = snapshot.data!.name;

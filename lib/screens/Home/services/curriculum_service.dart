@@ -1,10 +1,12 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hijra_steps/screens/Home/models/Level.dart';
 import 'package:hijra_steps/screens/helpers/fetcher.dart';
 
 class CurriculumService {
   Future<List<Level>> fetchCurriculum() async {
     try {
-      const String url = "http://192.168.1.13:3000/curriculum";
+      final String url = '${dotenv.get('DOMAIN')}/curriculum';
+      print(url);
       final response = await Fetcher().fetch(url);
 
       if (response.statusCode == 200) {

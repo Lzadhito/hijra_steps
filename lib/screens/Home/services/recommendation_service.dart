@@ -1,10 +1,11 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hijra_steps/screens/Home/models/Topic.dart';
 import 'package:hijra_steps/screens/helpers/fetcher.dart';
 
 class RecommendationService {
   Future<Topic> fetchRecommendation() async {
     try {
-      const String url = "http://192.168.1.13:3000/recommendation/1";
+      final String url = '${dotenv.get('DOMAIN')}/recommendation/1';
       final response = await Fetcher().fetch(url);
 
       if (response.statusCode == 200) {

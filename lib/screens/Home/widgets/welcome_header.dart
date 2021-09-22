@@ -17,54 +17,39 @@ class WelcomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-            width: double.infinity,
-            height: 100,
-            child: Container(
-              color: Colors.greenAccent,
-            )),
-        Positioned.fill(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
-            child: FutureBuilder(
-              future: ProfileService().fetchProfile(),
-              builder: (context, AsyncSnapshot<Profile> snapshot) {
-                if (snapshot.hasData) {
-                  final String profileName = snapshot.data!.name;
-                  final String avatarURL = snapshot.data!.avatarURL;
-                  print(avatarURL);
-                  final List<String> splitProfileName = profileName.split(" ");
-                  final String welcomeName = splitProfileName[0];
-                  final String initial = generateInitial(splitProfileName);
-                  return Row(children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Assalamualaikum"),
-                          Text(welcomeName)
-                        ],
-                      ),
-                    ),
-                    CircleAvatar(
-                      backgroundImage: avatarURL != ''
-                          ? CachedNetworkImageProvider(avatarURL)
-                          : null,
-                      child: avatarURL == '' ? Text(initial) : null,
-                      backgroundColor: Colors.white,
-                    ),
-                  ]);
-                } else {
-                  return WelcomeHeaderLoader();
-                }
-              },
-            ),
-          ),
-        )
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
+      child: FutureBuilder(
+        future: ProfileService().fetchProfile(),
+        builder: (context, AsyncSnapshot<Profile> snapshot) {
+          if (snapshot.hasData) {
+            final String profileName = snapshot.data!.name;
+            final String avatarURL = snapshot.data!.avatarURL;
+            print(avatarURL);
+            final List<String> splitProfileName = profileName.split(" ");
+            final String welcomeName = splitProfileName[0];
+            final String initial = generateInitial(splitProfileName);
+            return Row(children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [const Text("Assalamualaikum"), Text(welcomeName)],
+                ),
+              ),
+              CircleAvatar(
+                backgroundImage: avatarURL != ''
+                    ? CachedNetworkImageProvider(avatarURL)
+                    : null,
+                child: avatarURL == '' ? Text(initial) : null,
+                backgroundColor: Colors.white,
+              ),
+            ]);
+          } else {
+            return WelcomeHeaderLoader();
+          }
+        },
+      ),
     );
   }
 }

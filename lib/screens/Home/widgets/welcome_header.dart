@@ -1,37 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
-import 'dart:convert';
-import 'dart:async';
-import 'package:http/http.dart' as http;
-
-import 'package:hijra_steps/screens/Home/entity/Profile.dart';
+import 'package:hijra_steps/screens/Home/models/Profile.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
 
-class WelcomeHeader extends StatefulWidget {
-  @override
-  _WelcomeHeaderState createState() => _WelcomeHeaderState();
-}
-
-class _WelcomeHeaderState extends State<WelcomeHeader> {
-  late Future<Profile> futureProfileData;
-
-  Future<Profile> fetchProfile() async {
-    const String url = "http://192.168.0.199:3000/profile";
-    final response = await http.get(Uri.parse(url));
-
-    if (response.statusCode == 200) {
-      return Profile.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Failed to load profile');
-    }
-  }
-
-  @override
-  initState() {
-    super.initState();
-    futureProfileData = fetchProfile();
-  }
-
+class WelcomeHeader extends StatelessWidget {
   String generateInitial(List<String> names) {
     final int totalWords = names.length;
     if (totalWords < 2) {
@@ -55,7 +29,7 @@ class _WelcomeHeaderState extends State<WelcomeHeader> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
             child: FutureBuilder(
-              future: futureProfileData,
+              future: ProfileService().fetchProfile(),
               builder: (context, AsyncSnapshot<Profile> snapshot) {
                 if (snapshot.hasData) {
                   final String profileName = snapshot.data!.name;
@@ -76,8 +50,9 @@ class _WelcomeHeaderState extends State<WelcomeHeader> {
                       ),
                     ),
                     CircleAvatar(
-                      backgroundImage:
-                          avatarURL != '' ? NetworkImage(avatarURL) : null,
+                      backgroundImage: avatarURL != ''
+                          ? CachedNetworkImageProvider(avatarURL)
+                          : null,
                       child: avatarURL == '' ? Text(initial) : null,
                       backgroundColor: Colors.white,
                     ),

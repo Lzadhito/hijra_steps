@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/entity/Level.dart';
+import 'package:hijra_steps/screens/Home/models/Level.dart';
 
 import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
 

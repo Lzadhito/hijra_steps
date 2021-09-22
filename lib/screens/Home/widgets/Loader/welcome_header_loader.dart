@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
 import 'package:shimmer/shimmer.dart';
 
 class WelcomeHeaderLoader extends StatelessWidget {

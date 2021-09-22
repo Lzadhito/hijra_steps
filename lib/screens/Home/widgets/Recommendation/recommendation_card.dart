@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/cardRoundedCorner.dart' show roundedCornerBorderRadius;
@@ -33,13 +34,12 @@ class RecommendationCard extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image(
-                image: NetworkImage(imageUrl),
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
+                borderRadius: BorderRadius.circular(15.0),
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                )),
             Container(
               decoration: BoxDecoration(
                 borderRadius: roundedCornerBorderRadius,

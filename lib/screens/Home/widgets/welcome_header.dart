@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
 import 'package:hijra_steps/screens/Home/models/Profile.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
+    show paddingHorizontal;
+import 'package:hijra_steps/theme/colors.dart';
 
 class WelcomeHeader extends StatelessWidget {
   String generateInitial(List<String> names) {
@@ -18,7 +20,11 @@ class WelcomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
+      padding: EdgeInsets.only(
+          top: 40,
+          bottom: 20,
+          left: paddingHorizontal,
+          right: paddingHorizontal),
       child: FutureBuilder(
         future: ProfileService().fetchProfile(),
         builder: (context, AsyncSnapshot<Profile> snapshot) {
@@ -29,15 +35,26 @@ class WelcomeHeader extends StatelessWidget {
             final List<String> splitProfileName = profileName.split(" ");
             final String welcomeName = splitProfileName[0];
             final String initial = generateInitial(splitProfileName);
-            return Row(children: [
+            return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [const Text("Assalamualaikum"), Text(welcomeName)],
+                  children: [
+                    Text(
+                      "Assalamualaikum",
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    Text(welcomeName,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline1!
+                            .copyWith(color: primaryGreen))
+                  ],
                 ),
               ),
               CircleAvatar(
+                radius: 25,
                 backgroundImage: avatarURL != ''
                     ? CachedNetworkImageProvider(avatarURL)
                     : null,

@@ -3,7 +3,8 @@ import 'package:hijra_steps/screens/Home/services/curriculum_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/level_list_loader.dart';
 
 import 'package:hijra_steps/screens/Home/models/Level.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
+    show paddingHorizontal;
 import 'package:hijra_steps/screens/Home/widgets/Curriculum/level_list.dart';
 
 class CurriculumWidget extends StatelessWidget {
@@ -17,7 +18,10 @@ class CurriculumWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: paddingHorizontal),
-                child: const Text("Kurikulum Pembelajaran"),
+                child: Text(
+                  "Kurikulum Pembelajaran",
+                  style: Theme.of(context).textTheme.headline1,
+                ),
               ),
               ListView.separated(
                   shrinkWrap: true,
@@ -25,7 +29,7 @@ class CurriculumWidget extends StatelessWidget {
                   separatorBuilder: (BuildContext context, int i) =>
                       SizedBox(height: 30),
                   itemCount: snapshot.hasData ? snapshot.data!.length : 3,
-                  padding: EdgeInsets.only(top: 24.0),
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
                   itemBuilder: (BuildContext context, int index) {
                     if (snapshot.hasData)
                       return LevelList(level: snapshot.data![index]);

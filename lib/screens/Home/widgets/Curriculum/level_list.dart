@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/models/Level.dart';
+import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
 
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
+    show paddingHorizontal;
+import 'package:hijra_steps/theme/colors.dart';
 
 import 'topic_card.dart';
 
@@ -18,16 +21,33 @@ class LevelList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: paddingHorizontal),
-          child: Text('${level.order} ${level.title}'),
+          padding: const EdgeInsets.only(left: paddingHorizontal, bottom: 10),
+          child: Row(
+            children: [
+              Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 1, color: black)),
+                  child: Center(child: Text(level.order.toString()))),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  level.title,
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+              ),
+            ],
+          ),
         ),
         SizedBox(
-          height: 200,
+          height: topicCardHeight,
           child: ListView.separated(
               separatorBuilder: (BuildContext context, int i) =>
-                  SizedBox(width: 15),
+                  SizedBox(width: 10),
               itemCount: level.topics.length,
-              padding: EdgeInsets.only(left: paddingHorizontal),
+              padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return TopicCard(topic: level.topics[index]);

@@ -1,3 +1,5 @@
 import 'package:flutter/material.dart';
 
-Color primaryGreen = Colors.green.shade800;
+const Color primaryGreen = const Color(0XFF087F23);
+const Color subtitle = const Color(0XFF949393);
+const Color black = const Color(0XFF403F3F);

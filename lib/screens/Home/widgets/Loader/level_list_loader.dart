@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/topic_card_loader.dart';
 
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
+    show paddingHorizontal;
 import 'package:shimmer/shimmer.dart';
 
 class LevelListLoader extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import 'package:hijra_steps/screens/Home/widgets/constants/cardRoundedCorner.dart'
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
     show cardRoundedCorner;
 
 class RecommendationLoader extends StatelessWidget {

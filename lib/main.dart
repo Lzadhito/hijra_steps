@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/home_screen.dart';
 import 'package:hijra_steps/screens/Topic/topic_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hijra_steps/theme/colors.dart' show subtitle;
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -18,26 +19,46 @@ class HijraSteps extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: 'Poppins',
         textTheme: const TextTheme(
-            bodyText1: TextStyle(
-                fontSize: 13, fontWeight: FontWeight.w500, letterSpacing: 0.25),
-            bodyText2: TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w400, letterSpacing: 0.5),
-            headline1: TextStyle(
-                fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 0.15),
-            headline2: TextStyle(
-                fontSize: 17, fontWeight: FontWeight.w400, letterSpacing: 0.15),
-            headline3: TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w500, letterSpacing: 0.5),
-            headline4: TextStyle(
-                fontSize: 13, fontWeight: FontWeight.w500, letterSpacing: 0.25),
-            subtitle1: TextStyle(
-                fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.3),
-            subtitle2: TextStyle(
-                fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 0.3),
-            button: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1.25)),
+                bodyText1: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.25),
+                bodyText2: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.5),
+                headline1: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.15),
+                headline2: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.15),
+                headline3: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.5),
+                headline4: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.25),
+                subtitle1: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.3,
+                    color: subtitle),
+                subtitle2: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.3,
+                    color: subtitle),
+                button: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5))
+            .apply(
+                bodyColor: Color(0XFF403F3F), displayColor: Color(0XFF403F3F)),
       ),
       initialRoute: '/home',
       routes: {

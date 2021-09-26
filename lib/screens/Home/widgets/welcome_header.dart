@@ -19,54 +19,47 @@ class WelcomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-          top: 40,
-          bottom: 20,
-          left: paddingHorizontal,
-          right: paddingHorizontal),
-      child: FutureBuilder(
-        future: ProfileService().fetchProfile(),
-        builder: (context, AsyncSnapshot<Profile> snapshot) {
-          if (snapshot.hasData) {
-            final String profileName = snapshot.data!.name;
-            final String avatarURL = snapshot.data!.avatarURL;
-            print(avatarURL);
-            final List<String> splitProfileName = profileName.split(" ");
-            final String welcomeName = splitProfileName[0];
-            final String initial = generateInitial(splitProfileName);
-            return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Assalamualaikum",
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                    Text(welcomeName,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline1!
-                            .copyWith(color: primaryGreen))
-                  ],
-                ),
+    return FutureBuilder(
+      future: ProfileService().fetchProfile(),
+      builder: (context, AsyncSnapshot<Profile> snapshot) {
+        if (snapshot.hasData) {
+          final String profileName = snapshot.data!.name;
+          final String avatarURL = snapshot.data!.avatarURL;
+          print(avatarURL);
+          final List<String> splitProfileName = profileName.split(" ");
+          final String welcomeName = splitProfileName[0];
+          final String initial = generateInitial(splitProfileName);
+          return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Assalamualaikum",
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  Text(welcomeName,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .copyWith(color: primaryGreen))
+                ],
               ),
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: avatarURL != ''
-                    ? CachedNetworkImageProvider(avatarURL)
-                    : null,
-                child: avatarURL == '' ? Text(initial) : null,
-                backgroundColor: Colors.white,
-              ),
-            ]);
-          } else {
-            return WelcomeHeaderLoader();
-          }
-        },
-      ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              backgroundImage: avatarURL != ''
+                  ? CachedNetworkImageProvider(avatarURL)
+                  : null,
+              child: avatarURL == '' ? Text(initial) : null,
+              backgroundColor: Colors.white,
+            ),
+          ]);
+        } else {
+          return WelcomeHeaderLoader();
+        }
+      },
     );
   }
 }

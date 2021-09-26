@@ -25,7 +25,8 @@ class RecommendationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: paddingHorizontal),
+      padding: const EdgeInsets.only(
+          left: paddingHorizontal, right: paddingHorizontal, bottom: 30),
       child: FutureBuilder<Topic>(
           future: RecommendationService().fetchRecommendation(),
           builder: (BuildContext context, AsyncSnapshot<Topic> snapshot) {

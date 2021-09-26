@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/models/Level.dart';
-import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
 
+import 'package:hijra_steps/screens/Home/models/Level.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants.dart'
     show paddingHorizontal;
+import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
 import 'topic_card.dart';

@@ -29,7 +29,6 @@ dependencies:
   dio_http_cache: ^0.3.0
   cached_network_image: ^3.1.0
   flutter_dotenv: ^5.0.2
-  flutter_svg: ^0.22.0
   sticky_headers: ^0.2.0
 
 dev_dependencies:

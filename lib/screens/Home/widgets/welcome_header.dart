@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
 import 'package:hijra_steps/screens/Home/models/Profile.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants/padding.dart';
+import 'package:hijra_steps/screens/Home/widgets/constants.dart'
+    show paddingHorizontal;
+import 'package:hijra_steps/theme/colors.dart';
 
 class WelcomeHeader extends StatelessWidget {
   String generateInitial(List<String> names) {
@@ -17,54 +19,47 @@ class WelcomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-            width: double.infinity,
-            height: 100,
-            child: Container(
-              color: Colors.greenAccent,
-            )),
-        Positioned.fill(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
-            child: FutureBuilder(
-              future: ProfileService().fetchProfile(),
-              builder: (context, AsyncSnapshot<Profile> snapshot) {
-                if (snapshot.hasData) {
-                  final String profileName = snapshot.data!.name;
-                  final String avatarURL = snapshot.data!.avatarURL;
-                  print(avatarURL);
-                  final List<String> splitProfileName = profileName.split(" ");
-                  final String welcomeName = splitProfileName[0];
-                  final String initial = generateInitial(splitProfileName);
-                  return Row(children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Assalamualaikum"),
-                          Text(welcomeName)
-                        ],
-                      ),
-                    ),
-                    CircleAvatar(
-                      backgroundImage: avatarURL != ''
-                          ? CachedNetworkImageProvider(avatarURL)
-                          : null,
-                      child: avatarURL == '' ? Text(initial) : null,
-                      backgroundColor: Colors.white,
-                    ),
-                  ]);
-                } else {
-                  return WelcomeHeaderLoader();
-                }
-              },
+    return FutureBuilder(
+      future: ProfileService().fetchProfile(),
+      builder: (context, AsyncSnapshot<Profile> snapshot) {
+        if (snapshot.hasData) {
+          final String profileName = snapshot.data!.name;
+          final String avatarURL = snapshot.data!.avatarURL;
+          print(avatarURL);
+          final List<String> splitProfileName = profileName.split(" ");
+          final String welcomeName = splitProfileName[0];
+          final String initial = generateInitial(splitProfileName);
+          return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Assalamualaikum",
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  Text(welcomeName,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1!
+                          .copyWith(color: primaryGreen))
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+            CircleAvatar(
+              radius: 25,
+              backgroundImage: avatarURL != ''
+                  ? CachedNetworkImageProvider(avatarURL)
+                  : null,
+              child: avatarURL == '' ? Text(initial) : null,
+              backgroundColor: Colors.white,
+            ),
+          ]);
+        } else {
+          return WelcomeHeaderLoader();
+        }
+      },
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/models/Topic.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants/cardRoundedCorner.dart'
-    show cardRoundedCorner;
+import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
+import 'package:hijra_steps/theme/colors.dart';
 
 class TopicCard extends StatelessWidget {
   TopicCard({required this.topic});
@@ -18,52 +18,69 @@ class TopicCard extends StatelessWidget {
       );
     }
 
-    return AspectRatio(
-        aspectRatio: 1,
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: CachedNetworkImage(
-                imageUrl: topic.imageUrl,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              padding:
-                  const EdgeInsets.only(left: 9.0, right: 8.0, bottom: 8.0),
-              alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                height: 100,
-                child: Card(
-                    shape: cardRoundedCorner,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Row(children: [
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(topic.title),
-                              // Text(topic.ustadzName)
-                            ],
-                          ),
+    return GestureDetector(
+      onTap: goToTopicScreen,
+      child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Container(
+            width: 190,
+            height: topicCardHeight,
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 8),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: CachedNetworkImage(
+                          imageUrl: topic.imageUrl,
+                          height: 170,
+                          color: const Color.fromRGBO(0, 0, 0, 0.1),
+                          colorBlendMode: BlendMode.darken,
+                          fit: BoxFit.cover,
                         ),
-                        ElevatedButton(
-                            onPressed: goToTopicScreen,
-                            child: Icon(
-                              Icons.navigate_next_rounded,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shape: CircleBorder(),
-                            ))
-                      ]),
-                    )),
-              ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 18.0, left: 4.0, right: 4.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(topic.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline3!
+                                    .copyWith(color: primaryGreen)),
+                            Text(topic.ustadzName,
+                                style: Theme.of(context).textTheme.subtitle1)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 155, left: 140),
+                  child: Material(
+                    elevation: 2,
+                    color: primaryGreen,
+                    borderRadius: BorderRadius.circular(20),
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Icon(
+                        Icons.play_arrow_rounded,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
-          ],
-        ));
+          )),
+    );
   }
 }

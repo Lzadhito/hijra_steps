@@ -6,7 +6,7 @@ import 'package:hijra_steps/screens/Home/widgets/constants.dart'
 import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
-import 'topic_card.dart';
+import 'subject_card.dart';
 
 class LevelList extends StatelessWidget {
   LevelList({
@@ -42,15 +42,15 @@ class LevelList extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: topicCardHeight,
+          height: subjectCardHeight,
           child: ListView.separated(
               separatorBuilder: (BuildContext context, int i) =>
                   SizedBox(width: 10),
-              itemCount: level.topics.length,
+              itemCount: level.subjects.length,
               padding: EdgeInsets.symmetric(horizontal: paddingHorizontal),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return TopicCard(topic: level.topics[index]);
+                return SubjectCard(subject: level.subjects[index]);
               }),
         )
       ],

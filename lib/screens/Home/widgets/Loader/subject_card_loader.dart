@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:hijra_steps/screens/Home/widgets/constants.dart'
     show cardRoundedCorner;
 
-class TopicCardLoader extends StatelessWidget {
+class SubjectCardLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(

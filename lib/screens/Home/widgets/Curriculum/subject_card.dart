@@ -1,32 +1,32 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/models/Topic.dart';
+import 'package:hijra_steps/screens/Home/models/Subject.dart';
 import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
-class TopicCard extends StatelessWidget {
-  TopicCard({required this.topic});
-  final Topic topic;
+class SubjectCard extends StatelessWidget {
+  SubjectCard({required this.subject});
+  final Subject subject;
 
   @override
   Widget build(BuildContext context) {
-    void goToTopicScreen() {
+    void goToSubjectScreen() {
       Navigator.pushNamed(
         context,
-        '/topic',
-        arguments: topic.id,
+        '/subject',
+        arguments: subject.id,
       );
     }
 
     return GestureDetector(
-      onTap: goToTopicScreen,
+      onTap: goToSubjectScreen,
       child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: Container(
             width: 190,
-            height: topicCardHeight,
+            height: subjectCardHeight,
             child: Stack(
               children: [
                 Padding(
@@ -36,7 +36,7 @@ class TopicCard extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(15.0),
                         child: CachedNetworkImage(
-                          imageUrl: topic.imageUrl,
+                          imageUrl: subject.imageUrl,
                           height: 170,
                           color: const Color.fromRGBO(0, 0, 0, 0.1),
                           colorBlendMode: BlendMode.darken,
@@ -50,12 +50,12 @@ class TopicCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(topic.title,
+                            Text(subject.title,
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!
                                     .copyWith(color: primaryGreen)),
-                            Text(topic.ustadzName,
+                            Text(subject.ustadzName,
                                 style: Theme.of(context).textTheme.subtitle1)
                           ],
                         ),

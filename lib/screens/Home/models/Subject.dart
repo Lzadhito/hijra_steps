@@ -1,4 +1,4 @@
-class Topic {
+class Subject {
   final int id;
   final String imageUrl;
   final String description;
@@ -6,7 +6,7 @@ class Topic {
   final String ustadzName;
   final int status;
 
-  Topic({
+  Subject({
     required this.id,
     required this.status,
     required this.imageUrl,
@@ -15,8 +15,8 @@ class Topic {
     required this.ustadzName,
   });
 
-  factory Topic.fromJson(Map<String, dynamic> json) {
-    return Topic(
+  factory Subject.fromJson(Map<String, dynamic> json) {
+    return Subject(
       id: json['id'],
       status: json['status'],
       imageUrl: json['image_url'],

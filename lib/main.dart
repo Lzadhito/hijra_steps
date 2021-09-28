@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/home_screen.dart';
-import 'package:hijra_steps/screens/Topic/topic_screen.dart';
+import 'package:hijra_steps/screens/Subject/subject_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hijra_steps/theme/colors.dart' show subtitle;
 
@@ -63,7 +63,7 @@ class HijraSteps extends StatelessWidget {
       initialRoute: '/home',
       routes: {
         '/home': (_) => const HomeScreen(),
-        '/topic': (_) => const TopicScreen()
+        '/subject': (_) => const SubjectScreen()
       },
     );
   }

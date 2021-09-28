@@ -20,10 +20,10 @@ class RecommendationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void goToTopicScreen() {
+    void goToSubjectScreen() {
       Navigator.pushNamed(
         context,
-        '/topic',
+        '/subject',
         arguments: id,
       );
     }
@@ -86,7 +86,7 @@ class RecommendationCard extends StatelessWidget {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                     )),
-                                onPressed: goToTopicScreen,
+                                onPressed: goToSubjectScreen,
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10.0),

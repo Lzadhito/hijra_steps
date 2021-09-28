@@ -1,1 +1,1 @@
-const double topicCardHeight = 280;
+const double subjectCardHeight = 280;

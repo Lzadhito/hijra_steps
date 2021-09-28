@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TopicScreen extends StatelessWidget {
-  const TopicScreen({Key? key}) : super(key: key);
+class SubjectScreen extends StatelessWidget {
+  const SubjectScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class TopicScreen extends StatelessWidget {
         child: Column(
           children: [
             Text("Coming Soon!"),
-            Text("(Topic Screen $argsID)"),
+            Text("(Subject Screen $argsID)"),
           ],
         ),
       ),

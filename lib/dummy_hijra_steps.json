@@ -1,5 +1,5 @@
 {
-  "recommendation": [
+  "recommendation": 
     {
       "id": 1,
       "image_url": "https://drive.google.com/uc?id=1dEsNPVXAmjlQl9QKeieNL_0CMN7oT3Kd",
@@ -8,13 +8,13 @@
       "ustadz_name": "Ustadz Muhammad Fulan L.C.",
       "status": 2
     }
-  ],
+  ,
   "curriculum": [
     {
       "id": 1,
       "order": 1,
       "level_title": "Agama Islam",
-      "topics": [
+      "subjects": [
         {
           "id": 1,
           "image_url": "https://drive.google.com/uc?id=1dEsNPVXAmjlQl9QKeieNL_0CMN7oT3Kd",
@@ -35,7 +35,7 @@
       "id": 2,
       "order": 2,
       "level_title": "Memperbaiki Akar",
-      "topics": [
+      "subjects": [
         {
           "id": 3,
           "image_url": "https://drive.google.com/uc?id=1eAwd2r8lIWzb8T9nk8awpctA55_v8WK-",
@@ -63,7 +63,7 @@
       "id": 3,
       "order": 3,
       "level_title": "Tumbuh Berkembang",
-      "topics": [
+      "subjects": [
         {
           "id": 6,
           "image_url": "https://drive.google.com/uc?id=1lQ2M-4CITyOmgmYUyRj0OOdZLEeLWxni",

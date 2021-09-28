@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Home/widgets/Loader/topic_card_loader.dart';
+import 'package:hijra_steps/screens/Home/widgets/Loader/subject_card_loader.dart';
 
 import 'package:hijra_steps/screens/Home/widgets/constants.dart'
     show paddingHorizontal;
@@ -31,7 +31,7 @@ class LevelListLoader extends StatelessWidget {
               padding: EdgeInsets.only(left: paddingHorizontal),
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return TopicCardLoader();
+                return SubjectCardLoader();
               }),
         )
       ],

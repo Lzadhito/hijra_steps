@@ -5,7 +5,7 @@ import 'package:hijra_steps/screens/helpers/fetcher.dart';
 class CurriculumService {
   Future<List<Level>> fetchCurriculum() async {
     try {
-      final String url = '${dotenv.get('DOMAIN')}/curriculum';
+      final String url = '${dotenv.get('CURRICULUM')}';
       print(url);
       final response = await Fetcher().fetch(url);
 

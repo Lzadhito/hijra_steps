@@ -1,5 +1,5 @@
 {
-  "recommendation": [
+  "recommendation": 
     {
       "id": 1,
       "image_url": "https://drive.google.com/uc?id=1dEsNPVXAmjlQl9QKeieNL_0CMN7oT3Kd",
@@ -8,7 +8,7 @@
       "ustadz_name": "Ustadz Muhammad Fulan L.C.",
       "status": 2
     }
-  ],
+  ,
   "curriculum": [
     {
       "id": 1,

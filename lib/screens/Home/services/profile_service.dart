@@ -5,7 +5,7 @@ import 'package:hijra_steps/screens/helpers/fetcher.dart';
 class ProfileService {
   Future<Profile> fetchProfile() async {
     try {
-      final String url = '${dotenv.get('DOMAIN')}/profile';
+      final String url = '${dotenv.get('PROFILE')}';
       final response = await Fetcher().fetch(url);
 
       if (response.statusCode == 200) {

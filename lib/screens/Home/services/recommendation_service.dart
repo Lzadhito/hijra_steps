@@ -5,7 +5,7 @@ import 'package:hijra_steps/screens/helpers/fetcher.dart';
 class RecommendationService {
   Future<Subject> fetchRecommendation() async {
     try {
-      final String url = '${dotenv.get('DOMAIN')}/recommendation/1';
+      final String url = '${dotenv.get('RECOMMENDATION')}';
       final response = await Fetcher().fetch(url);
 
       if (response.statusCode == 200) {

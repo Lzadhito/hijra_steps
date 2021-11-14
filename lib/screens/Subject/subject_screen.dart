@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Subject/widgets/background.dart';
+import 'package:hijra_steps/screens/Subject/widgets/draggableComponent.dart';
 
 class SubjectScreen extends StatelessWidget {
   const SubjectScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final argsID = ModalRoute.of(context)!.settings.arguments as int;
-
-    return Scaffold(
-        body: SafeArea(
-            child: SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            Text("Coming Soon!"),
-            Text("(Subject Screen $argsID)"),
-          ],
-        ),
-      ),
-    )));
+    return MaterialApp(
+        title: 'Flutter layout',
+        home: Scaffold(
+          body: SafeArea(
+              child: Stack(
+            children: <Widget>[
+              Background(),
+              DraggableComponent(),
+            ],
+          )),
+        ));
   }
 }

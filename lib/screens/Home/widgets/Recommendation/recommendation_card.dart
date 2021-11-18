@@ -47,12 +47,10 @@ class RecommendationCard extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Center(
-                          child: Text(
-                    description,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: Colors.white),
+                          child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Text(description,
+                        style: TextStyle(color: Colors.white)),
                   ))),
                   Padding(
                     padding: EdgeInsets.only(bottom: 18.0),

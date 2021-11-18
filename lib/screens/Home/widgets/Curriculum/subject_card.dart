@@ -55,8 +55,11 @@ class SubjectCard extends StatelessWidget {
                                     .textTheme
                                     .headline3!
                                     .copyWith(color: primaryGreen)),
-                            Text(subject.ustadzName,
-                                style: Theme.of(context).textTheme.subtitle1)
+                            Container(
+                              margin: const EdgeInsets.only(top: 5),
+                              child: Text(subject.ustadzName,
+                                  style: Theme.of(context).textTheme.subtitle1),
+                            )
                           ],
                         ),
                       ),

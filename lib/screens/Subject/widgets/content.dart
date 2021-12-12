@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Subject/widgets/accordion.dart';
 import 'package:hijra_steps/screens/Subject/widgets/description.dart';
 
 class Content extends StatelessWidget {
@@ -56,27 +57,7 @@ class Content extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 250,
-                      child: Text(
-                        'Landasan 2: Mengenal Nabi Muhammad salallahu alihi wassalam',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xFF087F23),
-                        ),
-                      ),
-                    ),
-                    Icon(Icons.keyboard_arrow_down_sharp),
-                  ],
-                ),
-              ),
+              Accordion('Landasan 2: Mengenal Nabi Muhammad salallahu alihi wassalam', 'Mengamalkan Ilmu'),
               Padding(
                 padding: EdgeInsets.only(
                   top: 10,

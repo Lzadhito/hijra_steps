@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/services/profile_service.dart';
 import 'package:hijra_steps/screens/Home/widgets/Loader/welcome_header_loader.dart';
 import 'package:hijra_steps/screens/Home/models/Profile.dart';
-import 'package:hijra_steps/screens/Home/widgets/constants.dart'
-    show paddingHorizontal;
 import 'package:hijra_steps/theme/colors.dart';
 
 class WelcomeHeader extends StatelessWidget {
@@ -37,7 +35,10 @@ class WelcomeHeader extends StatelessWidget {
                 children: [
                   Text(
                     "Assalamualaikum",
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2!
+                        .copyWith(color: Colors.black),
                   ),
                   Text(welcomeName,
                       style: Theme.of(context)

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hijra_steps/screens/Home/models/Subject.dart';
 import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
+import 'package:hijra_steps/screens/Topic/widgets/cz_icon_button.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
 class SubjectCard extends StatelessWidget {
@@ -68,18 +69,7 @@ class SubjectCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 155, left: 140),
-                  child: Material(
-                    elevation: 2,
-                    color: primaryGreen,
-                    borderRadius: BorderRadius.circular(20),
-                    child: Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                  child: CZIconButton(icon: Icons.play_arrow_rounded),
                 )
               ],
             ),

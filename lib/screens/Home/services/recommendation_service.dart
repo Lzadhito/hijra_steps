@@ -1,6 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hijra_steps/screens/Home/models/Subject.dart';
-import 'package:hijra_steps/screens/helpers/fetcher.dart';
+import 'package:hijra_steps/helpers/fetcher.dart';
 
 class RecommendationService {
   Future<Subject> fetchRecommendation() async {

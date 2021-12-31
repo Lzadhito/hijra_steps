@@ -28,7 +28,10 @@ class CZScaffold extends StatelessWidget {
           : null,
       floatingActionButtonLocation:
           showFab ? FloatingActionButtonLocation.miniStartTop : null,
-      body: SafeArea(child: SingleChildScrollView(child: body)),
+      body: SafeArea(
+          child:
+              // @TODO: remove singlechildscrollview, let everyone implement it themself
+              SingleChildScrollView(child: body)),
     );
   }
 }

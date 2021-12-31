@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Topic/test.dart';
 import 'package:hijra_steps/screens/Topic/widgets/cz_button.dart';
 import 'package:hijra_steps/screens/Topic/widgets/cz_scaffold.dart';
 import 'package:hijra_steps/screens/Topic/widgets/youtube_player.dart';
@@ -16,6 +17,8 @@ class TopicScreen extends StatelessWidget {
       showBackButton: true,
       body: Column(
         children: [
+          // @TODO: remove this and refactor the future build to this screen
+          Test123(),
           YoutubePlayer(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),

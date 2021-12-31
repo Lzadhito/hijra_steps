@@ -62,7 +62,8 @@ class HijraSteps extends StatelessWidget {
             .apply(
                 bodyColor: Color(0XFF403F3F), displayColor: Color(0XFF403F3F)),
       ),
-      initialRoute: '/home',
+      // @TODO: change to /home when merging to master
+      initialRoute: '/topic',
       getPages: [
         GetPage(name: "/home", page: () => const HomeScreen()),
         GetPage(name: "/subject", page: () => const SubjectScreen()),

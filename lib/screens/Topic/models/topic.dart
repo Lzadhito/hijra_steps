@@ -5,19 +5,30 @@ part 'topic.g.dart';
 class Topic {
   final double id;
   final String title;
-  final String content_type;
-  final String topic_author;
-  final bool is_bonus_content;
-  final String material_explanation;
 
-  Topic({
-    required this.id,
-    required this.title,
-    required this.content_type,
-    required this.topic_author,
-    required this.is_bonus_content,
-    required this.material_explanation,
-  });
+  @JsonKey(name: 'content_type')
+  final String contentType;
+
+  @JsonKey(name: 'topic_author')
+  final String topicAuthor;
+
+  @JsonKey(name: 'is_bonus_content')
+  final bool isBonusContent;
+
+  @JsonKey(name: 'material_explanation')
+  final String description;
+
+  @JsonKey(name: 'content_url')
+  final String contentUrl;
+
+  Topic(
+      {required this.id,
+      required this.title,
+      required this.contentType,
+      required this.topicAuthor,
+      required this.isBonusContent,
+      required this.description,
+      required this.contentUrl});
 
   factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 

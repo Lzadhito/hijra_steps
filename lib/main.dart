@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:hijra_steps/screens/Home/home_screen.dart';
 import 'package:hijra_steps/screens/Subject/subject_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hijra_steps/screens/Topic/topic_screen.dart';
 import 'package:hijra_steps/theme/colors.dart' show subtitle;
 
 void main() async {
@@ -13,7 +15,7 @@ class HijraSteps extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Hijra Steps',
       theme: ThemeData(
         primarySwatch: Colors.green,
@@ -60,11 +62,13 @@ class HijraSteps extends StatelessWidget {
             .apply(
                 bodyColor: Color(0XFF403F3F), displayColor: Color(0XFF403F3F)),
       ),
-      initialRoute: '/home',
-      routes: {
-        '/home': (_) => const HomeScreen(),
-        '/subject': (_) => const SubjectScreen()
-      },
+      // @TODO: change to /home when merging to master
+      initialRoute: '/topic',
+      getPages: [
+        GetPage(name: "/home", page: () => const HomeScreen()),
+        GetPage(name: "/subject", page: () => const SubjectScreen()),
+        GetPage(name: "/topic", page: () => const TopicScreen()),
+      ],
     );
   }
 }

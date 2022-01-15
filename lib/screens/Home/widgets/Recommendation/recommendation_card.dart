@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:hijra_steps/screens/Topic/widgets/cz_button.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
 class RecommendationCard extends StatelessWidget {
@@ -78,24 +79,11 @@ class RecommendationCard extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            TextButton(
-                                style: TextButton.styleFrom(
-                                    backgroundColor: primaryGreen,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                    )),
-                                onPressed: goToSubjectScreen,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
-                                  child: Text(
-                                    "Pelajari",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .button!
-                                        .copyWith(color: Colors.white),
-                                  ),
-                                ))
+                            CZButton(
+                              text: "Pelajari",
+                              small: true,
+                              onPress: goToSubjectScreen,
+                            )
                           ]),
                         )),
                   ),

@@ -15,6 +15,11 @@ class TopicDetail extends StatelessWidget {
     required this.desc,
   }) : super(key: key);
 
+  void onPressSelesai(BuildContext context) {
+    // @TODO: Send BE something about the study is finished
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,7 +67,7 @@ class TopicDetail extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 24.0),
               width: double.infinity,
               child: CZButton(
-                onPress: () => {},
+                onPress: () => onPressSelesai(context),
                 icon: Icons.check_circle_rounded,
                 text: "Selesai",
               ))

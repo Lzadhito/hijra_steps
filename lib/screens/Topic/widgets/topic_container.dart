@@ -17,7 +17,8 @@ class TopicContainer extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           final Topic posts = snapshot.data!;
           debugPrint(posts.toString());
-          return Column(
+          return ListView(
+            shrinkWrap: true,
             children: [
               YoutubePlayer(contentUrl: posts.contentUrl),
               TopicDetail(

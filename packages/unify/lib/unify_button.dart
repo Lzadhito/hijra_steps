@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/theme/colors.dart';
+import './unify_colors.dart';
 
-class CZButton extends StatelessWidget {
+class UnifyButton extends StatelessWidget {
   final String text;
   final IconData? icon;
   final double verticalPadding;
@@ -10,7 +10,7 @@ class CZButton extends StatelessWidget {
   final bool disabled;
   final void Function() onPress;
 
-  const CZButton(
+  const UnifyButton(
       {Key? key,
       required this.onPress,
       required this.text,

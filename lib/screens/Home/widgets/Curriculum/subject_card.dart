@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import 'package:unify/unify_icon_button.dart';
+
 import 'package:hijra_steps/screens/Home/models/Subject.dart';
 import 'package:hijra_steps/screens/Home/widgets/Curriculum/constants.dart';
-import 'package:hijra_steps/screens/Topic/widgets/cz_icon_button.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
 class SubjectCard extends StatelessWidget {
@@ -69,7 +71,7 @@ class SubjectCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 155, left: 140),
-                  child: CZIconButton(icon: Icons.play_arrow_rounded),
+                  child: UnifyIconButton(icon: Icons.play_arrow_rounded),
                 )
               ],
             ),

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Topic/widgets/cz_button.dart';
+import 'package:unify/unify_button.dart';
 import 'package:hijra_steps/theme/colors.dart';
 
 class RecommendationCard extends StatelessWidget {
@@ -79,7 +79,7 @@ class RecommendationCard extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            CZButton(
+                            UnifyButton(
                               text: "Pelajari",
                               small: true,
                               onPress: goToSubjectScreen,

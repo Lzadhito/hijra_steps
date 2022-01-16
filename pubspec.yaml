@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  unify:
+    path: packages/unify
   cupertino_icons: ^1.0.2
   shimmer: ^2.0.0
   dio: ^4.0.0

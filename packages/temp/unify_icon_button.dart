@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/theme/colors.dart';
+import 'package:unify/unify_colors.dart';
 
-class CZIconButton extends StatelessWidget {
+class UnifyIconButton extends StatelessWidget {
   final IconData icon;
   final Color backgroundColor;
   final Color iconColor;
   final void Function()? onTap;
-  const CZIconButton(
+  const UnifyIconButton(
       {Key? key,
       required this.icon,
       this.backgroundColor = primaryGreen,

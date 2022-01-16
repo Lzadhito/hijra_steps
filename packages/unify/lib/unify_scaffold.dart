@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CZScaffold extends StatelessWidget {
+class UnifyScaffold extends StatelessWidget {
   final Widget body;
   final bool showBackButton;
-  const CZScaffold({Key? key, required this.body, this.showBackButton = false})
+  const UnifyScaffold(
+      {Key? key, required this.body, this.showBackButton = false})
       : super(key: key);
 
   @override

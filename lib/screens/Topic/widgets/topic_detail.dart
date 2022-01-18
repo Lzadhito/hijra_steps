@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Topic/widgets/cz_button.dart';
 import 'package:flutter_html/flutter_html.dart';
+
+import 'package:unify/unify_button.dart';
 import 'package:hijra_steps/theme/colors.dart' show primaryGreen;
 
 class TopicDetail extends StatelessWidget {
@@ -14,6 +15,11 @@ class TopicDetail extends StatelessWidget {
     required this.author,
     required this.desc,
   }) : super(key: key);
+
+  void onPressSelesai(BuildContext context) {
+    // @TODO: Send BE something about the study is finished
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +67,8 @@ class TopicDetail extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(bottom: 24.0),
               width: double.infinity,
-              child: CZButton(
-                onPress: () => {},
+              child: UnifyButton(
+                onPress: () => onPressSelesai(context),
                 icon: Icons.check_circle_rounded,
                 text: "Selesai",
               ))

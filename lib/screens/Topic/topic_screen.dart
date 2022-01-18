@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijra_steps/screens/Topic/widgets/cz_scaffold.dart';
+import 'package:unify/unify_scaffold.dart';
 import 'package:hijra_steps/screens/Topic/widgets/topic_container.dart';
 
 class TopicScreen extends StatelessWidget {
@@ -7,6 +7,6 @@ class TopicScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CZScaffold(showBackButton: true, body: TopicContainer());
+    return UnifyScaffold(showBackButton: true, body: TopicContainer());
   }
 }

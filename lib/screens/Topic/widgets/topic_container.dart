@@ -17,15 +17,17 @@ class TopicContainer extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           final Topic posts = snapshot.data!;
           debugPrint(posts.toString());
-          return ListView(
-            shrinkWrap: true,
-            children: [
-              YoutubePlayer(contentUrl: posts.contentUrl),
-              TopicDetail(
-                  title: posts.title,
-                  author: posts.topicAuthor,
-                  desc: posts.description),
-            ],
+          return Center(
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                YoutubePlayer(contentUrl: posts.contentUrl),
+                TopicDetail(
+                    title: posts.title,
+                    author: posts.topicAuthor,
+                    desc: posts.description),
+              ],
+            ),
           );
         } else {
           return Center(
